@@ -16,7 +16,7 @@
 
         @foreach($results as $result)
         <div class="pt-2">
-            <a href="/articles/{{ $result->id }}" target="_blank">
+            <a wire:navigate.hover href="/articles/{{ $result->id }}" target="_blank">
 
                 {{$result->title}}
             </a>
