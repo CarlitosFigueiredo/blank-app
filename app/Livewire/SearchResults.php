@@ -12,7 +12,7 @@ class SearchResults extends Component
     public $results = [];
 
     #[Reactive]
-    public $show = [];
+    public bool $show = false;
 
     public function render(): View
     {
