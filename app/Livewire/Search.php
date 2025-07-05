@@ -13,6 +13,8 @@ class Search extends Component
     #[Validate('min:3')]
     public string $searchText = '';
 
+    public string $placeholder = '';
+
     public $results = [];
 
     public function updatedSearchText($value)
