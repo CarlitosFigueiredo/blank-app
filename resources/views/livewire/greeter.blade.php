@@ -1,50 +1,29 @@
 <div>
-    <form
-        wire:submit="changeGreeting()"
-    >
+    <form wire:submit="changeGreeting()">
         <div class="mt-2">
-            <select
-                wire:model.fill='greeting'
-                name="greeting"
-                id="greeting"
-                class="p-4 border rounded-md bg-gray-700 text-white"
-            >
+            <select type="text" class="p-4 border rounded-md bg-gray-700 text-white" wire:model.fill="greeting">
                 @foreach ($greetings as $item)
-                    <option value="{{ $item->greeting }}">{{ $item->greeting }}</option>
+                <option value="{{$item->greeting}}">
+                    {{$item->greeting}}
+                </option>
                 @endforeach
             </select>
-
-            <input
-                wire:model='name'
-                type="text"
-                name="newName"
-                id="newName"
-                class="p-4 border rounded-md bg-gray-700 text-white"
-            />
+            <input type="text" class="p-4 border rounded-md bg-gray-700 text-white" wire:model="name">
         </div>
         <div>
             @error('name')
-                <span
-                    class="text-[#f53003]"
-                >
-                    {{ $message }}
-                </span>
+            {{$message}}
             @enderror
         </div>
         <div class="mt-2">
-            <button
-                class="text-white font-medium rounded-md px-4 py-2 bg-blue-600"
-                type="submit"
-            >
+            <button type="submit" class="text-white font-medium rounded-md px-4 py-2 bg-blue-600">
                 Greet
             </button>
         </div>
     </form>
-
     @if ($greetingMessage !== '')
-        <div class="mt-5">
-
-            {{ $greetingMessage }}!
-        </div>
+    <div>
+        {{$greetingMessage}}
+    </div>
     @endif
 </div>

@@ -1,18 +1,10 @@
 <div>
     <form>
         <div class="mt-2">
-            <input wire:model.live.debounce="searchText" type="text"
-                class="p-4 w-full border rounded-md bg-gray-700 text-white" placeholder="{{ $this->placeholder }}" />
+            <input type="text" class="p-4 w-full border rounded-md bg-gray-700 text-white"
+                wire:model.live.debounce="searchText" placeholder="{{$placeholder}}">
         </div>
     </form>
-    <div class="mt-4">
+    <livewire:search-results :results="$results" :show="!empty($searchText)">
 
-        @error('searchText')
-        <span class="text-[#F53003]">
-            {{ $message }}
-        </span>
-        @enderror
-    </div>
-
-    <livewire:search-results :$results :show="!empty($searchText)" />
 </div>
