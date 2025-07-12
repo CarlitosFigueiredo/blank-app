@@ -15,7 +15,7 @@ class Article extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['title', 'content', 'published', 'notification'];
+    protected $fillable = ['title', 'content', 'published', 'notifications'];
 
     /**
      * Get the attributes that should be cast.
@@ -26,6 +26,7 @@ class Article extends Model
     {
         return [
             'published' => 'boolean',
+            'notifications' => 'array',
         ];
     }
 }

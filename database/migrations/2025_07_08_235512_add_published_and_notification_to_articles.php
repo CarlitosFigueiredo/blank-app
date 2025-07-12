@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('articles', function (Blueprint $table) {
 
             $table->boolean('published')->default(false);
-            $table->string('notification')->default('none');
+            $table->string('notifications')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
         Schema::table('articles', function (Blueprint $table) {
 
             $table->dropColumn('published');
-            $table->dropColumn('notification');
+            $table->dropColumn('notifications');
         });
     }
 };
