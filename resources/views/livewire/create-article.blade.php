@@ -51,13 +51,13 @@
                         Yes
                     </label>
 
-                    <label class="flex items-center">
+                    <label class="flex items-center" wire:click="form.notifications = []">
                         <input type="radio" value="false" class="mr-2" wire:model.boolean="form.allowNotification" />
                         No
                     </label>
                 </div>
 
-                <div x-show="$wire.form.allowNotification">
+                <div x-show="$wire.form.allowNotification" x-cloak>
 
                     <label class="flex items-center ">
                         <input type="checkbox" value="email" class="mr-2" wire:model="form.notifications" />
@@ -79,7 +79,8 @@
         </div>
 
         <div class="mb-3">
-            <button class="text-gray-200 p-2 bg-indigo-700 hover:bg-indigo-900 rounded-sm" type="submit">
+            <button class="text-gray-200 p-2 bg-blue-700 rounded-sm disabled:opacity-75 disabled:bg-blue-300"
+                type="submit" wire:dirty.class="hover:bg-blue-900" wire:dirty.attr.remove="disabled" disabled>
                 Save
             </button>
         </div>
