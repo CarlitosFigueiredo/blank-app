@@ -5,38 +5,36 @@ namespace App\Livewire;
 use App\Models\Article;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Validate;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Search extends Component
 {
-    #[Validate('required')]
-    #[Validate('min:3')]
+    // #[Url(as: 'q', except: '', history: true)]
     public string $searchText = '';
-
     public string $placeholder = '';
-
-    public $results = [];
-
-    public function updatedSearchText($value)
-    {
-        $this->reset('results');
-
-        $this->validate();
-
-        $searchTerm = "%{$value}%";
-
-        $this->results = Article::where('title', 'LIKE', $searchTerm)->get();
-    }
 
     #[On('search:clear-results')]
     public function clear()
     {
-        $this->reset('results', 'searchText');
+        $this->reset('searchText');
+    }
+
+    protected function queryString(): array
+    {
+        return [
+            'searchText' => [
+                'as' => 'q',
+                'history' => true,
+                'except' => '',
+            ]
+        ];
     }
 
     public function render(): View
     {
-        return view('livewire.search');
+        return view('livewire.search', [
+            'results' => Article::where('title', 'LIKE', '%' . $this->searchText . '%')->get(),
+        ]);
     }
 }
