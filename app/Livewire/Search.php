@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Models\Article;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Search extends Component

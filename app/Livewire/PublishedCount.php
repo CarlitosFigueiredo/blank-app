@@ -4,20 +4,22 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Illuminate\View\View;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
 #[Lazy]
 class PublishedCount extends Component
 {
-    public int $count = 0;
+    // public int $count = 0;
     public string $placeholderText = '';
 
-    public function mount(): void
+    #[Computed(cache: true, key: 'published-count')]
+    protected function count(): int
     {
         sleep(1);
 
-        $this->count = Article::where('published', 1)->count();
+        return Article::where('published', 1)->count();
     }
 
     public function render(): View
