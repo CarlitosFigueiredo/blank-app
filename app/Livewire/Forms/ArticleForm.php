@@ -3,12 +3,16 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Article;
+use Livewire\Attributes\Locked;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
 class ArticleForm extends Form
 {
     public ?Article $article;
+
+    #[Locked]
+    public int $id = 0;
 
     #[Rule('required')]
     public string $title = '';
@@ -26,6 +30,7 @@ class ArticleForm extends Form
     {
         $this->article = $article;
 
+        $this->id = $this->article->id;
         $this->title = $this->article->title;
         $this->content = $this->article->content;
         $this->published = $this->article->published;

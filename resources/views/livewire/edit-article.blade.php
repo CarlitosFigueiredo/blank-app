@@ -1,6 +1,7 @@
 <div class="m-auto w-1/2 mb-4">
     <h3 class="text-lg text-gray-200 mb-3">
         Edit Article
+        (ID: {{ $this->form->id }})
     </h3>
 
     <form wire:submit="save">
