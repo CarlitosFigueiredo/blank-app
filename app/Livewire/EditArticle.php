@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\ArticleForm;
 use App\Models\Article;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 
@@ -16,6 +17,16 @@ class EditArticle extends AdminComponent
     public function mount(Article $article): void
     {
         $this->form->setArticle($article);
+    }
+
+    public function downloadPhoto()
+    {
+        return response()->download(
+            Storage::disk('public')->path($this->form->photo_path),
+            'article.png'
+        );
+
+        // return response()->streamDownload(function () {}, 'article.png');
     }
 
     public function save(): void
