@@ -8,7 +8,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
-#[Lazy(Isolate: false)]
+#[Lazy(isolate: false)]
 class PublishedCount extends Component
 {
     // public int $count = 0;
