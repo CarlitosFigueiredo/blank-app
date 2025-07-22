@@ -119,7 +119,7 @@
                     </label>
                 </div>
 
-                <div x-show="$wire.form.allowNotification" x-cloak>
+                <div x-show="$wire.form.allowNotification" x-cloak wire:transition>
 
                     <label class="flex items-center ">
                         <input type="checkbox" value="email" class="mr-2" wire:model="form.notifications" />
