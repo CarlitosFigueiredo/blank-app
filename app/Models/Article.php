@@ -15,7 +15,7 @@ class Article extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['title', 'content', 'published', 'notifications'];
+    protected $fillable = ['title', 'content', 'published', 'notifications', 'photo_path'];
 
     /**
      * Get the attributes that should be cast.

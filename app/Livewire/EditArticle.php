@@ -5,9 +5,12 @@ namespace App\Livewire;
 use App\Livewire\Forms\ArticleForm;
 use App\Models\Article;
 use Illuminate\View\View;
+use Livewire\WithFileUploads;
 
 class EditArticle extends AdminComponent
 {
+    use WithFileUploads;
+
     public ArticleForm $form;
 
     public function mount(Article $article): void
