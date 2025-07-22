@@ -4,9 +4,11 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Illuminate\View\View;
+use Livewire\Attributes\Isolate;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
+#[Isolate]
 class Search extends Component
 {
     // #[Url(as: 'q', except: '', history: true)]
